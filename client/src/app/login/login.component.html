@@ -1,0 +1,45 @@
+<main class="flex justify-center items-center min-h-screen bg-gray-100 p-4">
+    <div class="bg-white p-4 md:p-8 rounded-lg shadow-lg max-w-md w-full text-center">
+        <h1 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-800">Login Page</h1>
+        <div>
+            <form (ngSubmit)="login()" class="space-y-4">
+                <div class="text-left">
+                    <label for="username" class="block font-medium text-gray-700">Username:</label>
+                    <input type="text" id="username" [(ngModel)]="username" name="username" required 
+                           class="w-full p-2 mt-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400 focus:border-transparent">
+                </div>
+
+                <div class="text-left relative">
+                    <label for="password" class="block font-medium text-gray-700">Password:</label>
+                    <input [type]="isPasswordVisible ? 'text' : 'password'" id="password" [(ngModel)]="password" name="password" required 
+                           class="w-full p-2 mt-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400 focus:border-transparent">
+                    
+                    <button type="button" (click)="togglePasswordVisibility()" 
+                            class="absolute inset-y-0 right-0 flex items-center pr-3 group">
+                        <svg class="mt-8 w-5 h-5 text-gray-600 group-hover:text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825a6.002 6.002 0 01-3.75-1.308A6.001 6.001 0 017 12c0-1.64.616-3.13 1.625-4.25M15 6.75A6.001 6.001 0 0121 12c0 1.64-.616 3.13-1.625 4.25M15 6.75A6.001 6.001 0 0112 3a6.001 6.001 0 00-6 6c0 1.64.616 3.13 1.625 4.25m8.75-5.5A6.002 6.002 0 0015 12a6.002 6.002 0 01-1.125 3.375m1.125-9.75c.34.19.645.425.875.688M9 12c.34.19.645.425.875.688" />
+                        </svg>
+                        <span class="absolute bottom-full right-0 mb-0 w-max bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                            View Password
+                        </span>
+                    </button>
+                </div>
+
+                <div class="flex justify-between mt-4">
+                    <button type="button" (click)="clearFields()" 
+                            class="bg-red-500 text-white font-medium rounded-md py-2 px-4 hover:bg-red-600 focus:outline-none">
+                        Clear
+                    </button>
+                    <button type="submit" 
+                            class="bg-green-500 text-white font-medium rounded-md py-2 px-4 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50">
+                        Login
+                    </button>
+                </div>
+
+                <p class="mt-4 text-sm text-gray-600">Don't have an account? 
+                    <a href="/register" class="text-blue-500 hover:underline">Register here</a>
+                </p>
+            </form> 
+        </div>
+    </div>
+</main>
